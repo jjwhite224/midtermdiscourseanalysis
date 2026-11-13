@@ -9,13 +9,14 @@ This script does not change data/summary.json or the website.
 import html
 import re
 from pathlib import Path
+from collections import Counter
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.decomposition import TruncatedSVD
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer, ENGLISH_STOP_WORDS
 from sklearn.metrics import silhouette_score
 
 RANDOM_SEED = 42
@@ -61,10 +62,64 @@ if len(eligible) < 12:
     raise ValueError("At least 12 eligible comments are needed.")
 
 
-# Step 4 — Convert words into numeric features (TF-IDF)
+# Step 3A — Standard stop words + your own exclusion list
+
+# Mandiberg's custom stop-word approach, adapted to scikit-learn:
+# 1. Start with a standard stop-word set.
+STANDARD_STOP_WORDS = set(ENGLISH_STOP_WORDS)
+
+# 2. Add your own words. Change this list based on what you observe.
+CUSTOM_STOP_WORDS = {
+    "hasan", "hasanabi", "fox", "youtube", "channel", "video",
+    "subscribe", "subscribed", "thumbnail",
+    "lol", "lmao", "yeah", "gonna", "wanna", "im", "ive",
+    "dont", "doesnt", "didnt", "youre", "thats", "grokspx"
+}
+
+# 3. These might be topical references, jokes, or actual research findings.
+# Don't remove them unless a private review justifies it.
+REMOVE_REVIEW_WORDS = False
+REVIEW_ONLY_WORDS = {"rachel", "outfit", "collab", "bluke", "blexas"}
+
+# 4. Union the sets, as in the professor's custom_stop_words_pattern.py.
+STOP_WORDS = STANDARD_STOP_WORDS.union(CUSTOM_STOP_WORDS)
+if REMOVE_REVIEW_WORDS:
+    STOP_WORDS = STOP_WORDS.union(REVIEW_ONLY_WORDS)
+
+# 5. Show what will change. A token is a 2+-character word-like piece.
+token_pattern = re.compile(r"(?u)\b\w\w+\b")
+def words_in(text):
+    return token_pattern.findall(text)
+
+before_counts = Counter(
+    word for comment in eligible["text_clean"] for word in words_in(comment)
+)
+after_counts = Counter({
+    word: count for word, count in before_counts.items() if word not in STOP_WORDS
+})
+removed = sum(before_counts.values()) - sum(after_counts.values())
+
+print("English stop words:", len(STANDARD_STOP_WORDS))
+print("Custom words:", sorted(CUSTOM_STOP_WORDS))
+print("Removed token occurrences:", removed,
+      f"of {sum(before_counts.values())} ({removed / max(1, sum(before_counts.values())):.1%})")
+print("\nMost frequent words BEFORE filtering:")
+print(before_counts.most_common(15))
+print("\nMost frequent words AFTER filtering:")
+print(after_counts.most_common(15))
+
+# Teaching example: show a made-up sentence, not someone's private comment.
+example = "Hasan just talked about the Senate election; I voted today!"
+example_tokens = words_in(clean_text(example))
+print("\nSynthetic example before:", example_tokens)
+print("Synthetic example after:",
+      [token for token in example_tokens if token not in STOP_WORDS])
+
+
+# Step 4 — Turn remaining words into numerical features (TF-IDF)
 
 vectorizer = TfidfVectorizer(
-    stop_words="english",
+    stop_words=sorted(STOP_WORDS),
     min_df=2,
     max_df=0.90,
     ngram_range=(1, 2),
@@ -75,6 +130,19 @@ X = vectorizer.fit_transform(eligible["text_clean"])
 feature_names = vectorizer.get_feature_names_out()
 print("Comments x features:", X.shape)
 print("Example features:", list(feature_names[:15]))
+print("Custom excluded words remaining as features:",
+      sorted(set(CUSTOM_STOP_WORDS).intersection(feature_names)))
+# Comments containing only removed words/no retained features become all-zero vectors.
+# Exclude them from K-Means but keep them in df for sampling diagnostics.
+nonzero_mask = X.getnnz(axis=1) > 0
+zero_vector_count = int((~nonzero_mask).sum())
+print("Additional comments with zero TF-IDF features:", zero_vector_count)
+if zero_vector_count:
+    eligible = eligible.loc[nonzero_mask].reset_index(drop=True)
+    X = X[nonzero_mask]
+print("Comments remaining for K-Means:", X.shape[0])
+if X.shape[0] < 12:
+    raise ValueError("Too few comments remaining after stop-word/TF-IDF filtering.")
 if X.shape[1] < 2:
     raise ValueError("Not enough distinct TF-IDF features.")
 
