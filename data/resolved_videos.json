@@ -1,0 +1,96 @@
+[
+  {
+    "id": "VLb58bb-sQ8",
+    "title": "MY PREDICTIONS FOR THE SENATE MIDTERMS",
+    "published_at_utc": "2026-11-02T17:00:08Z",
+    "channel_id": "UCtoaZpBnrd0lhycxYJ4MNOQ",
+    "url": "https://www.youtube.com/watch?v=VLb58bb-sQ8",
+    "auto_selected": false,
+    "channel": "HasanAbi",
+    "phase": "before",
+    "source": "https://arcmira.com/watch?v=VLb58bb-sQ8"
+  },
+  {
+    "id": "EPhDfkvR1AQ",
+    "title": "PRE-ELECTION POLLS ARE A BLUE NUKE",
+    "published_at_utc": "2026-11-03T16:30:36Z",
+    "channel_id": "UCtoaZpBnrd0lhycxYJ4MNOQ",
+    "url": "https://www.youtube.com/watch?v=EPhDfkvR1AQ",
+    "auto_selected": false,
+    "channel": "HasanAbi",
+    "phase": "election",
+    "source": "https://arcmira.com/watch?v=EPhDfkvR1AQ"
+  },
+  {
+    "id": "aO61Eyw-jEs",
+    "title": "THE MIDTERMS WERE A BLUE NUKE",
+    "published_at_utc": "2026-11-04T13:04:03Z",
+    "channel_id": "UCtoaZpBnrd0lhycxYJ4MNOQ",
+    "url": "https://www.youtube.com/watch?v=aO61Eyw-jEs",
+    "auto_selected": false,
+    "channel": "HasanAbi",
+    "phase": "after",
+    "source": "https://arcmira.com/watch?v=aO61Eyw-jEs"
+  },
+  {
+    "id": "F6AZHs-Zy7Q",
+    "title": "Mamdani's midterm message to voters: Don't bring an ID to vote #shorts #fox #breaking",
+    "published_at_utc": "2026-10-27T05:30:02Z",
+    "channel_id": "UCXIJgqnII2ZOINSWNOGFThA",
+    "url": "https://www.youtube.com/watch?v=F6AZHs-Zy7Q",
+    "auto_selected": true,
+    "review_required": true,
+    "other_candidates": [
+      {
+        "id": "SnZ3tlabjas",
+        "title": "SENATE TWIST: Fianc\u00e9 of El-Sayed's Democratic primary rival says he's voting for Mike Rogers",
+        "score": 2
+      },
+      {
+        "id": "_QQWNkSK0qY",
+        "title": "IRAN WARNING: US reportedly considering renewed strikes after 2026 midterm elections",
+        "score": 2
+      },
+      {
+        "id": "YC5r5vWf2x0",
+        "title": "SENATE POLL ALERT: Six states now within margin of error",
+        "score": 2
+      },
+      {
+        "id": "QXMkAUXLDnM",
+        "title": "JD Vance WARNS what will happen if \u2018INSANE\u2019 Democrats win the House and Senate",
+        "score": 2
+      },
+      {
+        "id": "9-qz4c7RuPQ",
+        "title": "New House maps could SHATTER election plans",
+        "score": 2
+      }
+    ],
+    "channel": "Fox News",
+    "phase": "before",
+    "source": null
+  },
+  {
+    "id": "1FBFCOrpE-o",
+    "title": "McEnany: This is the HOTTEST race of 2026",
+    "published_at_utc": "2026-11-04T00:30:39Z",
+    "channel_id": "UCXIJgqnII2ZOINSWNOGFThA",
+    "url": "https://www.youtube.com/watch?v=1FBFCOrpE-o",
+    "auto_selected": false,
+    "channel": "Fox News",
+    "phase": "election",
+    "source": "https://viralshooter.com/v/1FBFCOrpE-o"
+  },
+  {
+    "id": "Bxi-I9eFBxk",
+    "title": "Trump REACTS to Dem wins: 'I HAVE THE POWER OF VETO'",
+    "published_at_utc": "2026-11-04T06:00:09Z",
+    "channel_id": "UCXIJgqnII2ZOINSWNOGFThA",
+    "url": "https://www.youtube.com/watch?v=Bxi-I9eFBxk",
+    "auto_selected": false,
+    "channel": "Fox News",
+    "phase": "after",
+    "source": "https://viralshooter.com/v/Bxi-I9eFBxk"
+  }
+]

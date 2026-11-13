@@ -1,0 +1,79 @@
+{
+  "collected_at_utc": "2026-11-13T19:13:44.578664+00:00",
+  "target_per_video": 150,
+  "dry_run": false,
+  "reports": [
+    {
+      "channel": "HasanAbi",
+      "phase": "before",
+      "video_id": "VLb58bb-sQ8",
+      "status": "collected",
+      "eligible_scanned": 580,
+      "selected": 150,
+      "pages_scanned": 8,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "election",
+      "video_id": "EPhDfkvR1AQ",
+      "status": "collected",
+      "eligible_scanned": 1040,
+      "selected": 150,
+      "pages_scanned": 11,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "after",
+      "video_id": "aO61Eyw-jEs",
+      "status": "collected",
+      "eligible_scanned": 2223,
+      "selected": 150,
+      "pages_scanned": 23,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    },
+    {
+      "channel": "Fox News",
+      "phase": "before",
+      "video_id": "F6AZHs-Zy7Q",
+      "status": "collected",
+      "eligible_scanned": 800,
+      "selected": 150,
+      "pages_scanned": 9,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    },
+    {
+      "channel": "Fox News",
+      "phase": "election",
+      "video_id": "1FBFCOrpE-o",
+      "status": "collected",
+      "eligible_scanned": 471,
+      "selected": 150,
+      "pages_scanned": 6,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    },
+    {
+      "channel": "Fox News",
+      "phase": "after",
+      "video_id": "Bxi-I9eFBxk",
+      "status": "collected",
+      "eligible_scanned": 9573,
+      "selected": 150,
+      "pages_scanned": 96,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    }
+  ]
+}

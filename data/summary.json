@@ -1,10 +1,837 @@
 {
-  "status": "not_collected",
-  "generated_at_utc": null,
-  "total_comments": 0,
-  "notes": "No actual YouTube comments have been collected or analyzed yet.",
-  "by_channel_phase": [],
-  "terms_by_phase": [],
-  "clusters": [],
-  "videos": []
+  "status": "analyzed",
+  "generated_at_utc": "2026-11-13T19:13:45.761484+00:00",
+  "total_comments": 900,
+  "phase_order": [
+    "before",
+    "election",
+    "after"
+  ],
+  "phases": {
+    "before": {
+      "start": "2026-10-27T00:00:00",
+      "end": "2026-11-03T00:00:00",
+      "label": "Before \u00b7 Oct 27\u2013Nov 2"
+    },
+    "election": {
+      "start": "2026-11-03T00:00:00",
+      "end": "2026-11-04T00:00:00",
+      "label": "Election Day \u00b7 Nov 3"
+    },
+    "after": {
+      "start": "2026-11-04T00:00:00",
+      "end": "2026-11-11T00:00:00",
+      "label": "After \u00b7 Nov 4\u201310"
+    }
+  },
+  "channels": [
+    "HasanAbi",
+    "Fox News"
+  ],
+  "by_channel_phase": [
+    {
+      "channel": "HasanAbi",
+      "phase": "before",
+      "count": 150,
+      "top_terms": [
+        {
+          "term": "rachel",
+          "count": 20
+        },
+        {
+          "term": "hasan",
+          "count": 12
+        },
+        {
+          "term": "love",
+          "count": 11
+        },
+        {
+          "term": "vote",
+          "count": 11
+        },
+        {
+          "term": "texas",
+          "count": 10
+        },
+        {
+          "term": "i'm",
+          "count": 9
+        },
+        {
+          "term": "don't",
+          "count": 9
+        },
+        {
+          "term": "people",
+          "count": 9
+        },
+        {
+          "term": "outfit",
+          "count": 8
+        },
+        {
+          "term": "polls",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "election",
+      "count": 150,
+      "top_terms": [
+        {
+          "term": "vote",
+          "count": 35
+        },
+        {
+          "term": "voted",
+          "count": 24
+        },
+        {
+          "term": "blue",
+          "count": 19
+        },
+        {
+          "term": "voting",
+          "count": 10
+        },
+        {
+          "term": "don't",
+          "count": 10
+        },
+        {
+          "term": "polls",
+          "count": 9
+        },
+        {
+          "term": "abdul",
+          "count": 9
+        },
+        {
+          "term": "i'm",
+          "count": 8
+        },
+        {
+          "term": "gen",
+          "count": 8
+        },
+        {
+          "term": "voters",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "after",
+      "count": 150,
+      "top_terms": [
+        {
+          "term": "hasan",
+          "count": 16
+        },
+        {
+          "term": "blue",
+          "count": 14
+        },
+        {
+          "term": "people",
+          "count": 7
+        },
+        {
+          "term": "going",
+          "count": 7
+        },
+        {
+          "term": "texas",
+          "count": 7
+        },
+        {
+          "term": "right",
+          "count": 6
+        },
+        {
+          "term": "bluke",
+          "count": 6
+        },
+        {
+          "term": "blexas",
+          "count": 6
+        },
+        {
+          "term": "happy",
+          "count": 6
+        },
+        {
+          "term": "thumbnail",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "channel": "Fox News",
+      "phase": "before",
+      "count": 150,
+      "top_terms": [
+        {
+          "term": "vote",
+          "count": 23
+        },
+        {
+          "term": "new",
+          "count": 19
+        },
+        {
+          "term": "people",
+          "count": 13
+        },
+        {
+          "term": "york",
+          "count": 13
+        },
+        {
+          "term": "need",
+          "count": 8
+        },
+        {
+          "term": "treason",
+          "count": 8
+        },
+        {
+          "term": "ice",
+          "count": 8
+        },
+        {
+          "term": "mamdani",
+          "count": 7
+        },
+        {
+          "term": "win",
+          "count": 7
+        },
+        {
+          "term": "law",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "channel": "Fox News",
+      "phase": "election",
+      "count": 150,
+      "top_terms": [
+        {
+          "term": "trump",
+          "count": 19
+        },
+        {
+          "term": "fox",
+          "count": 13
+        },
+        {
+          "term": "grokspx",
+          "count": 13
+        },
+        {
+          "term": "america",
+          "count": 12
+        },
+        {
+          "term": "republicans",
+          "count": 12
+        },
+        {
+          "term": "news",
+          "count": 10
+        },
+        {
+          "term": "blue",
+          "count": 10
+        },
+        {
+          "term": "love",
+          "count": 10
+        },
+        {
+          "term": "democrats",
+          "count": 9
+        },
+        {
+          "term": "people",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "channel": "Fox News",
+      "phase": "after",
+      "count": 150,
+      "top_terms": [
+        {
+          "term": "trump",
+          "count": 44
+        },
+        {
+          "term": "people",
+          "count": 18
+        },
+        {
+          "term": "iran",
+          "count": 17
+        },
+        {
+          "term": "president",
+          "count": 16
+        },
+        {
+          "term": "veto",
+          "count": 10
+        },
+        {
+          "term": "democrats",
+          "count": 10
+        },
+        {
+          "term": "war",
+          "count": 9
+        },
+        {
+          "term": "going",
+          "count": 9
+        },
+        {
+          "term": "american",
+          "count": 8
+        },
+        {
+          "term": "country",
+          "count": 8
+        }
+      ]
+    }
+  ],
+  "terms_by_phase": [
+    {
+      "phase": "before",
+      "terms": [
+        {
+          "term": "vote",
+          "count": 34
+        },
+        {
+          "term": "people",
+          "count": 22
+        },
+        {
+          "term": "new",
+          "count": 21
+        },
+        {
+          "term": "rachel",
+          "count": 20
+        },
+        {
+          "term": "don't",
+          "count": 15
+        },
+        {
+          "term": "love",
+          "count": 13
+        },
+        {
+          "term": "york",
+          "count": 13
+        },
+        {
+          "term": "hasan",
+          "count": 12
+        },
+        {
+          "term": "win",
+          "count": 12
+        },
+        {
+          "term": "texas",
+          "count": 10
+        },
+        {
+          "term": "it's",
+          "count": 10
+        },
+        {
+          "term": "going",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "phase": "election",
+      "terms": [
+        {
+          "term": "vote",
+          "count": 43
+        },
+        {
+          "term": "blue",
+          "count": 29
+        },
+        {
+          "term": "voted",
+          "count": 28
+        },
+        {
+          "term": "trump",
+          "count": 22
+        },
+        {
+          "term": "don't",
+          "count": 16
+        },
+        {
+          "term": "america",
+          "count": 16
+        },
+        {
+          "term": "people",
+          "count": 14
+        },
+        {
+          "term": "republicans",
+          "count": 14
+        },
+        {
+          "term": "voting",
+          "count": 13
+        },
+        {
+          "term": "fox",
+          "count": 13
+        },
+        {
+          "term": "grokspx",
+          "count": 13
+        },
+        {
+          "term": "i'm",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "terms": [
+        {
+          "term": "trump",
+          "count": 50
+        },
+        {
+          "term": "people",
+          "count": 25
+        },
+        {
+          "term": "blue",
+          "count": 18
+        },
+        {
+          "term": "iran",
+          "count": 18
+        },
+        {
+          "term": "president",
+          "count": 17
+        },
+        {
+          "term": "hasan",
+          "count": 16
+        },
+        {
+          "term": "going",
+          "count": 16
+        },
+        {
+          "term": "democrats",
+          "count": 13
+        },
+        {
+          "term": "vote",
+          "count": 12
+        },
+        {
+          "term": "god",
+          "count": 11
+        },
+        {
+          "term": "texas",
+          "count": 11
+        },
+        {
+          "term": "veto",
+          "count": 11
+        }
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": 0,
+      "label": "Cluster 1",
+      "terms": [
+        "like",
+        "just",
+        "love",
+        "going",
+        "people",
+        "america"
+      ]
+    },
+    {
+      "id": 1,
+      "label": "Cluster 2",
+      "terms": [
+        "win",
+        "texas",
+        "red",
+        "election",
+        "vote",
+        "vote red"
+      ]
+    },
+    {
+      "id": 2,
+      "label": "Cluster 3",
+      "terms": [
+        "trump",
+        "veto",
+        "iran",
+        "war",
+        "democrats",
+        "like"
+      ]
+    },
+    {
+      "id": 3,
+      "label": "Cluster 4",
+      "terms": [
+        "blue",
+        "new",
+        "new york",
+        "york",
+        "voted",
+        "blue wave"
+      ]
+    },
+    {
+      "id": 4,
+      "label": "Cluster 5",
+      "terms": [
+        "hasan",
+        "ms",
+        "rachel",
+        "ms rachel",
+        "dressed",
+        "collab"
+      ]
+    },
+    {
+      "id": 5,
+      "label": "Cluster 6",
+      "terms": [
+        "vote",
+        "abdul",
+        "republicans",
+        "voted",
+        "today",
+        "people"
+      ]
+    }
+  ],
+  "cluster_allocations": [
+    {
+      "channel": "HasanAbi",
+      "phase": "before",
+      "cluster_id": 0,
+      "count": 86
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "before",
+      "cluster_id": 1,
+      "count": 12
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "before",
+      "cluster_id": 2,
+      "count": 2
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "before",
+      "cluster_id": 3,
+      "count": 4
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "before",
+      "cluster_id": 4,
+      "count": 23
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "before",
+      "cluster_id": 5,
+      "count": 13
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "election",
+      "cluster_id": 0,
+      "count": 73
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "election",
+      "cluster_id": 1,
+      "count": 9
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "election",
+      "cluster_id": 2,
+      "count": 3
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "election",
+      "cluster_id": 3,
+      "count": 17
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "election",
+      "cluster_id": 4,
+      "count": 0
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "election",
+      "cluster_id": 5,
+      "count": 33
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "after",
+      "cluster_id": 0,
+      "count": 99
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "after",
+      "cluster_id": 1,
+      "count": 12
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "after",
+      "cluster_id": 2,
+      "count": 6
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "after",
+      "cluster_id": 3,
+      "count": 8
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "after",
+      "cluster_id": 4,
+      "count": 14
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "after",
+      "cluster_id": 5,
+      "count": 3
+    },
+    {
+      "channel": "Fox News",
+      "phase": "before",
+      "cluster_id": 0,
+      "count": 91
+    },
+    {
+      "channel": "Fox News",
+      "phase": "before",
+      "cluster_id": 1,
+      "count": 10
+    },
+    {
+      "channel": "Fox News",
+      "phase": "before",
+      "cluster_id": 2,
+      "count": 3
+    },
+    {
+      "channel": "Fox News",
+      "phase": "before",
+      "cluster_id": 3,
+      "count": 16
+    },
+    {
+      "channel": "Fox News",
+      "phase": "before",
+      "cluster_id": 4,
+      "count": 0
+    },
+    {
+      "channel": "Fox News",
+      "phase": "before",
+      "cluster_id": 5,
+      "count": 15
+    },
+    {
+      "channel": "Fox News",
+      "phase": "election",
+      "cluster_id": 0,
+      "count": 86
+    },
+    {
+      "channel": "Fox News",
+      "phase": "election",
+      "cluster_id": 1,
+      "count": 15
+    },
+    {
+      "channel": "Fox News",
+      "phase": "election",
+      "cluster_id": 2,
+      "count": 20
+    },
+    {
+      "channel": "Fox News",
+      "phase": "election",
+      "cluster_id": 3,
+      "count": 5
+    },
+    {
+      "channel": "Fox News",
+      "phase": "election",
+      "cluster_id": 4,
+      "count": 0
+    },
+    {
+      "channel": "Fox News",
+      "phase": "election",
+      "cluster_id": 5,
+      "count": 13
+    },
+    {
+      "channel": "Fox News",
+      "phase": "after",
+      "cluster_id": 0,
+      "count": 77
+    },
+    {
+      "channel": "Fox News",
+      "phase": "after",
+      "cluster_id": 1,
+      "count": 5
+    },
+    {
+      "channel": "Fox News",
+      "phase": "after",
+      "cluster_id": 2,
+      "count": 46
+    },
+    {
+      "channel": "Fox News",
+      "phase": "after",
+      "cluster_id": 3,
+      "count": 5
+    },
+    {
+      "channel": "Fox News",
+      "phase": "after",
+      "cluster_id": 4,
+      "count": 0
+    },
+    {
+      "channel": "Fox News",
+      "phase": "after",
+      "cluster_id": 5,
+      "count": 7
+    }
+  ],
+  "notes": "Exploratory analysis of public top-level comments, selected via a stable hash within timestamps. Term counts indicate comments containing each word, not sentiment. K-Means clusters are unsupervised lexical groups, not ideological labels.",
+  "collection_report": [
+    {
+      "channel": "HasanAbi",
+      "phase": "before",
+      "video_id": "VLb58bb-sQ8",
+      "status": "collected",
+      "selected": 150,
+      "eligible_scanned": 580,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "election",
+      "video_id": "EPhDfkvR1AQ",
+      "status": "collected",
+      "selected": 150,
+      "eligible_scanned": 1040,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "after",
+      "video_id": "aO61Eyw-jEs",
+      "status": "collected",
+      "selected": 150,
+      "eligible_scanned": 2223,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    },
+    {
+      "channel": "Fox News",
+      "phase": "before",
+      "video_id": "F6AZHs-Zy7Q",
+      "status": "collected",
+      "selected": 150,
+      "eligible_scanned": 800,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    },
+    {
+      "channel": "Fox News",
+      "phase": "election",
+      "video_id": "1FBFCOrpE-o",
+      "status": "collected",
+      "selected": 150,
+      "eligible_scanned": 471,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    },
+    {
+      "channel": "Fox News",
+      "phase": "after",
+      "video_id": "Bxi-I9eFBxk",
+      "status": "collected",
+      "selected": 150,
+      "eligible_scanned": 9573,
+      "scan_complete": true,
+      "stop_reason": "exhausted",
+      "under_target": false
+    }
+  ]
 }
