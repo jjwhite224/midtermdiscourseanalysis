@@ -1,0 +1,75 @@
+{
+  "project": "2026 US midterm YouTube discourse pilot",
+  "timezone": "America/New_York",
+  "channels": {
+    "HasanAbi": {
+      "channel_id": "UCtoaZpBnrd0lhycxYJ4MNOQ"
+    },
+    "Fox News": {
+      "channel_id": "UCXIJgqnII2ZOINSWNOGFThA"
+    }
+  },
+  "phases": {
+    "before": {
+      "start": "2026-10-27T00:00:00",
+      "end": "2026-11-03T00:00:00",
+      "label": "Before · Oct 27–Nov 2"
+    },
+    "election": {
+      "start": "2026-11-03T00:00:00",
+      "end": "2026-11-04T00:00:00",
+      "label": "Election Day · Nov 3"
+    },
+    "after": {
+      "start": "2026-11-04T00:00:00",
+      "end": "2026-11-11T00:00:00",
+      "label": "After · Nov 4–10"
+    }
+  },
+  "videos": [
+    {
+      "channel": "HasanAbi",
+      "phase": "before",
+      "id": "VLb58bb-sQ8",
+      "title": "HISTORIC MIDTERMS ARE UPON US",
+      "source": "https://arcmira.com/watch?v=VLb58bb-sQ8"
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "election",
+      "id": "EPhDfkvR1AQ",
+      "title": "PRE-ELECTION POLLS ARE A BLUE NUKE",
+      "source": "https://arcmira.com/watch?v=EPhDfkvR1AQ"
+    },
+    {
+      "channel": "HasanAbi",
+      "phase": "after",
+      "id": "aO61Eyw-jEs",
+      "title": "THE MIDTERMS WERE A BLUE NUKE",
+      "source": "https://arcmira.com/watch?v=aO61Eyw-jEs"
+    },
+    {
+      "channel": "Fox News",
+      "phase": "before",
+      "id": null,
+      "title": null,
+      "search_query": "midterm elections",
+      "source": null,
+      "selection_status": "requires API discovery and review"
+    },
+    {
+      "channel": "Fox News",
+      "phase": "election",
+      "id": "1FBFCOrpE-o",
+      "title": "McEnany: This is the HOTTEST race of 2026",
+      "source": "https://viralshooter.com/v/1FBFCOrpE-o"
+    },
+    {
+      "channel": "Fox News",
+      "phase": "after",
+      "id": "Bxi-I9eFBxk",
+      "title": "Trump REACTS to Dem wins: 'I HAVE THE POWER OF VETO'",
+      "source": "https://viralshooter.com/v/Bxi-I9eFBxk"
+    }
+  ]
+}
