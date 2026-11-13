@@ -1,0 +1,31 @@
+name: Validate pilot code
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile Python
+        run: python -m compileall -q scripts tests
+      - name: Run offline unit tests
+        run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check browser JavaScript syntax
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          html=Path('index.html').read_text(encoding='utf-8')
+          match=re.search(r'<script>(.*?)</script>', html, re.S)
+          assert match, 'script tag not found'
+          Path('site-check.js').write_text(match.group(1), encoding='utf-8')
+          PY
+          node --check site-check.js
