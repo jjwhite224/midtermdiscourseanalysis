@@ -1,0 +1,7 @@
+# Never commit collected comment text or API credentials.
+data/private/
+.env
+.env.*
+__pycache__/
+.venv/
+*.py[cod]
