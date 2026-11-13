@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="A pilot study of political language in YouTube comments before, during and after the 2026 midterm elections.">
+  <title>Before the Vote, After the Result — Midterm Discourse Lab</title>
+  <style>
+    :root{--bg:#0c1320;--panel:#141f2f;--edge:#2c3a4f;--ink:#f0ede7;--muted:#aab7c7;--gold:#f0bf75;--blue:#79c9d3;--blue2:#396f80;--fox:#e69b62;--radius:15px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:var(--blue);text-underline-offset:3px}a:hover{text-decoration-color:var(--gold)}button{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+    .wrap{max-width:1200px;padding:0 30px;margin:auto}
+    .top{border-bottom:1px solid var(--edge);display:flex;justify-content:space-between;align-items:center;min-height:72px;gap:16px}
+    .mark{font-size:13px;text-transform:uppercase;letter-spacing:.19em;font-weight:800}.top nav{display:flex;gap:20px;font-size:13px}
+    .hero{padding:80px 0 66px;position:relative;overflow:hidden;border-bottom:1px solid var(--edge)}
+    .hero:after{content:"";position:absolute;right:-12%;top:-150px;width:650px;height:650px;background:radial-gradient(circle,rgba(100,158,172,.13),transparent 65%);pointer-events:none}
+    .eyebrow{text-transform:uppercase;letter-spacing:.19em;font-size:12px;font-weight:800;color:var(--gold)}
+    h1,h2,h3,p{margin:0}h1{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.045em;font-weight:400;font-size:clamp(53px,7.8vw,105px);line-height:1.02;max-width:960px;margin:18px 0 23px}
+    h1 em{color:var(--gold);font-weight:400}.intro{font-size:19px;color:#ced6df;max-width:790px;line-height:1.7}
+    .hero-bottom{margin-top:42px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .pill{border:1px solid var(--edge);padding:8px 13px;border-radius:40px;color:var(--muted);font-size:13px}
+    .dot{display:inline-block;width:7px;height:7px;background:var(--gold);border-radius:50%;margin-right:8px}
+    section{padding:64px 0;border-bottom:1px solid var(--edge)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:27px}
+    .section-head h2{font:400 clamp(30px,4vw,48px)/1.16 Georgia,serif;letter-spacing:-.026em}
+    .section-head p{max-width:390px;color:var(--muted);font-size:14px}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:45px}
+    .metric{border-top:1px solid #526072;padding:15px 0}.metric strong{display:block;font:400 42px/1.1 Georgia,serif}.metric span{font-size:13px;color:var(--muted)}
+    .phase-switch,.channel-switch{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+    .tab{background:transparent;border:1px solid var(--edge);border-radius:100px;padding:10px 17px;color:var(--muted);cursor:pointer;transition:.2s}
+    .tab:hover,.tab[aria-pressed=true]{background:#28384b;color:var(--ink);border-color:#8292a2}
+    .phase-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .phase-card{border:1px solid var(--edge);background:var(--panel);padding:25px;border-radius:var(--radius)}
+    .phase-card small{color:var(--gold);text-transform:uppercase;letter-spacing:.15em}.phase-card h3{font:400 29px Georgia,serif;margin:10px 0}
+    .phase-card p{color:var(--muted);font-size:14px}.phase-card .num{display:block;font:400 37px Georgia,serif;margin-top:19px}
+    .state{border:1px solid var(--edge);border-left:4px solid var(--gold);border-radius:9px;padding:17px 22px;color:#d8e1eb;background:#152030;margin-top:22px}
+    .state strong{color:var(--ink)}.charts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .chart-box{background:var(--panel);border:1px solid var(--edge);border-radius:var(--radius);padding:26px;min-height:310px}
+    .chart-box h3{font:400 27px Georgia,serif;margin-bottom:6px}.chart-box .explain{color:var(--muted);font-size:13px;margin-bottom:27px}
+    .bars{display:flex;flex-direction:column;gap:17px}.bar-label{display:flex;justify-content:space-between;font-size:13px;gap:8px}.bar-label span{color:var(--muted)}
+    .track{background:#29384a;height:9px;border-radius:9px;overflow:hidden;margin-top:7px}.fill{height:100%;border-radius:9px;background:var(--blue)}
+    .term-grid{display:flex;gap:8px;flex-wrap:wrap}.word{border:1px solid #3c5065;color:#e4ecf3;border-radius:7px;padding:8px 11px;font-size:13px}.word b{color:var(--gold);font-size:12px;margin-left:8px}
+    .empty{border:1px dashed #45536a;padding:22px;border-radius:10px;color:var(--muted);font-size:14px}
+    .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .video{background:var(--panel);border:1px solid var(--edge);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+    .thumbnail{aspect-ratio:16/9;background:linear-gradient(130deg,#2b394b,#172131);position:relative;overflow:hidden}
+    .thumbnail img{width:100%;height:100%;object-fit:cover;display:block}.thumbnail .flag{position:absolute;top:12px;left:12px;background:rgba(10,16,25,.92);padding:5px 10px;border-radius:30px;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+    .video-body{padding:19px 20px 23px;display:flex;flex-direction:column;gap:10px;flex:1}
+    .video-body h3{font-size:17px;line-height:1.34;font-weight:650}.video-body .meta{color:var(--muted);font-size:13px}
+    .video-body .link{margin-top:auto;font-size:13px;font-weight:700}.video-body .pending{color:var(--gold);font-size:12px}
+    .legend{display:flex;gap:15px;flex-wrap:wrap;color:var(--muted);font-size:13px}.splot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px}
+    .methods{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.method{padding:24px;border-left:1px solid #556579}
+    .method .step{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.15em}.method h3{margin:12px 0;font:400 26px Georgia,serif}.method p{color:var(--muted);font-size:14px}
+    footer{padding:42px 0 70px;display:flex;align-items:start;justify-content:space-between;gap:30px;color:var(--muted);font-size:13px}
+    .sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0}
+    @media(max-width:870px){.metrics{grid-template-columns:repeat(2,1fr)}.video-grid{grid-template-columns:repeat(2,1fr)}.charts{grid-template-columns:1fr}.methods{grid-template-columns:1fr}.method{border-left:0;border-top:1px solid var(--edge)}}
+    @media(max-width:600px){.wrap{padding:0 18px}.top{align-items:flex-start;padding:17px 0;flex-direction:column}.top nav{gap:15px}.hero{padding:60px 0}.intro{font-size:16px}.phase-cards,.video-grid{grid-template-columns:1fr}footer,.section-head{display:block}.section-head p{margin-top:14px}.metrics{margin-top:30px}.metric strong{font-size:32px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="wrap top">
+    <a href="#" class="mark" style="color:var(--ink);text-decoration:none">MIDTERM / DISCOURSE <span style="color:var(--gold)">LAB</span></a>
+    <nav aria-label="Sections">
+      <a href="#timeline">Timeline</a><a href="#analysis">Analysis</a><a href="#videos">Source videos</a><a href="#method">Methods</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="wrap">
+        <p class="eyebrow">2026 Midterms · YouTube language study · Pilot edition</p>
+        <h1>Before the vote.<br><em>After the result.</em></h1>
+        <p class="intro">How does a political conversation change when the votes are counted? A reproducible investigation of comments around the 2026 midterms, beginning with HasanAbi and Fox News.</p>
+        <div class="hero-bottom">
+          <span class="pill"><span class="dot"></span><span id="status-word">Awaiting data collection</span></span>
+          <span class="pill">Election Day: November 3, 2026</span>
+          <span class="pill">Times shown in New York time</span>
+        </div>
+        <div class="metrics" aria-label="Pilot overview statistics">
+          <div class="metric"><strong>2</strong><span>Channels in pilot</span></div>
+          <div class="metric"><strong>3</strong><span>Election periods</span></div>
+          <div class="metric"><strong>6</strong><span>Video slots</span></div>
+          <div class="metric"><strong id="total">0</strong><span>Comments analyzed</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="wrap" id="timeline">
+      <div class="section-head">
+        <div><div class="eyebrow" style="margin-bottom:10px">01 / Frame</div><h2>Three moments, one election</h2></div>
+        <p>The same two communities sampled before, on, and after November 3. This is a pilot, not a nationally representative survey.</p>
+      </div>
+      <div class="phase-cards">
+        <article class="phase-card"><small>01 / Before</small><h3>The expectation</h3><p>October 27–November 2. Polling, predictions, campaigns and competing expectations.</p><span class="num" id="total-before">—</span><p>Eligible comments</p></article>
+        <article class="phase-card"><small>02 / Election Day</small><h3>The uncertainty</h3><p>November 3. Voters go to the polls, news changes quickly and results begin arriving.</p><span class="num" id="total-election">—</span><p>Eligible comments</p></article>
+        <article class="phase-card"><small>03 / After</small><h3>The explanation</h3><p>November 4–10. Reactions, explanations and attempts to make sense of outcomes.</p><span class="num" id="total-after">—</span><p>Eligible comments</p></article>
+      </div>
+      <div class="state" id="data-status" role="status"><strong>Data collection not yet run.</strong> The video shortlist is visible below, but no comments or ML findings have been published.</div>
+    </section>
+
+    <section class="wrap" id="analysis">
+      <div class="section-head">
+        <div><div class="eyebrow" style="margin-bottom:10px">02 / Explore</div><h2>What did people say?</h2></div>
+        <p>Compare comments collected in the same period. Both language and cluster charts will populate from actual API-derived data.</p>
+      </div>
+      <div class="phase-switch" aria-label="Select time period" id="phase-switch">
+        <button class="tab" type="button" data-phase="before" aria-pressed="true">Before · Oct 27–Nov 2</button>
+        <button class="tab" type="button" data-phase="election" aria-pressed="false">Election Day · Nov 3</button>
+        <button class="tab" type="button" data-phase="after" aria-pressed="false">After · Nov 4–10</button>
+      </div>
+      <div class="charts">
+        <article class="chart-box">
+          <h3>Who is in the sample?</h3>
+          <p class="explain">Eligible, time-filtered comments by source channel; totals may differ if coverage is incomplete.</p>
+          <div id="count-bars" class="bars"><div class="empty">Run the collector to see sample sizes.</div></div>
+        </article>
+        <article class="chart-box">
+          <h3>Language of the moment</h3>
+          <p class="explain">Most frequent meaningful terms (the number of sampled comments mentioning each term).</p>
+          <div id="terms" class="term-grid"><div class="empty">No observed words yet. No synthetic comments are displayed.</div></div>
+        </article>
+        <article class="chart-box" style="grid-column:1/-1">
+          <h3>Lexical clusters</h3>
+          <p class="explain">Exploratory TF-IDF + K-Means groups, modeled jointly for all channels and periods. These are not political-ideology labels.</p>
+          <div id="clusters" class="bars"><div class="empty">The cluster comparison will appear after running scripts/analyze.py.</div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" id="videos">
+      <div class="section-head">
+        <div><div class="eyebrow" style="margin-bottom:10px">03 / Sources</div><h2>The six-video shortlist</h2></div>
+        <p>Five candidate uploads are sourced from public indexes. One Fox News pre-election video requires official API discovery. The pipeline validates all six before collection.</p>
+      </div>
+      <div class="legend" style="margin-bottom:22px">
+        <span><span class="splot" style="background:var(--blue)"></span>HasanAbi</span>
+        <span><span class="splot" style="background:var(--fox)"></span>Fox News</span>
+        <span>One upload per channel per phase</span>
+      </div>
+      <div id="videos-grid" class="video-grid"><p class="empty">Loading source videos…</p></div>
+    </section>
+
+    <section class="wrap" id="method">
+      <div class="section-head"><div><div class="eyebrow" style="margin-bottom:10px">04 / Methods</div><h2>What the model can—and cannot—say</h2></div></div>
+      <div class="methods">
+        <article class="method"><span class="step">01 / Gather</span><h3>Timestamp, not just title</h3><p>A video's date alone cannot tell us when a comment was made. The collection script checks each comment's original publication time against an Eastern-time election phase.</p></article>
+        <article class="method"><span class="step">02 / Compare</span><h3>Shared vocabulary space</h3><p>One TF-IDF representation is fitted across the entire pilot sample, then K-Means groups comments by word patterns. Aggregate results can be compared across both channels and all three phases.</p></article>
+        <article class="method"><span class="step">03 / Qualify</span><h3>Not a public-opinion poll</h3><p>Comments are self-selected and moderated; posts may be deleted or unavailable. Upload timing and uneven sample sizes may influence what we see. Clusters do not indicate individual political beliefs.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">
+    <div><strong style="color:var(--ink)">MIDTERM / DISCOURSE LAB</strong><div>DATA 78000 · CUNY Graduate Center · Fall 2026</div></div>
+    <div>Source: public YouTube videos · <a href="https://github.com/jjwhite224/midtermdiscourseanalysis">Code &amp; methodology</a><div>Raw comments are not published here.</div></div>
+  </footer>
+  <script>
+  (function () {
+    'use strict';
+    var selectedPhase = 'before';
+    var summary = null;
+    var videos = null;
+    var phases = {before:'Before',election:'Election Day',after:'After'};
+    var channels = ['HasanAbi','Fox News'];
+    var $ = function (s) { return document.querySelector(s); };
+    var make = function (name, attrs, content) {
+      var node = document.createElement(name);
+      Object.keys(attrs || {}).forEach(function(k){if(k==='class')node.className=attrs[k];else node.setAttribute(k,attrs[k]);});
+      if(content!==undefined)node.textContent=content;
+      return node;
+    };
+    var countFormat = function (n) { return Number(n || 0).toLocaleString('en-US'); };
+    var note = function(t){return make('div',{class:'empty'},t);};
+    var clear = function(n){while(n.firstChild)n.removeChild(n.firstChild);};
+
+    function drawVideos() {
+      var root = $('#videos-grid'); clear(root);
+      if(!videos){root.appendChild(note('Source metadata unavailable.'));return;}
+      var verification = summary && summary.status === 'analyzed'
+        ? (summary.collection_report || []) : [];
+      ['before','election','after'].forEach(function(phase){
+        channels.forEach(function(channel){
+          var item = videos.videos.find(function(v){return v.phase===phase && v.channel===channel;});
+          if(!item)return;
+          var card=make('article',{class:'video'});
+          var thumb=make('div',{class:'thumbnail'});
+          if(item.id && /^[A-Za-z0-9_-]{11}$/.test(item.id)){
+            var img=make('img',{src:'https://i.ytimg.com/vi/'+item.id+'/hqdefault.jpg',alt:'',loading:'lazy'});
+            thumb.appendChild(img);
+          }
+          thumb.appendChild(make('span',{class:'flag'},phases[phase]));
+          card.appendChild(thumb);
+          var body=make('div',{class:'video-body'});
+          body.appendChild(make('div',{class:'eyebrow'},channel));
+          body.appendChild(make('h3',{},item.title || 'Pre-election upload: discovery pending'));
+          body.appendChild(make('p',{class:'meta'},item.id ? 'YouTube video ID: '+item.id : 'Video ID is not yet selected'));
+          var status=verification.find(function(r){return r.channel===channel && r.phase===phase;});
+          if(status && status.status==='collected'){
+            body.appendChild(make('p',{class:'meta'},countFormat(status.selected)+' timed comments sampled'));
+          } else {
+            body.appendChild(make('p',{class:'pending'},item.id ? 'Source candidate · API verification pending' : 'Requires YouTube API selection'));
+          }
+          if(item.id){
+            var link=make('a',{class:'link',href:'https://www.youtube.com/watch?v='+item.id,target:'_blank',rel:'noopener noreferrer'},'Watch original video ↗');
+            body.appendChild(link);
+          }
+          if(item.source){
+            body.appendChild(make('a',{href:item.source,target:'_blank',rel:'noopener noreferrer',class:'meta'},'Video source index'));
+          }
+          card.appendChild(body);
+          root.appendChild(card);
+        });
+      });
+    }
+
+    function bar(root,label,value,maximum,color) {
+      var item=make('div',{});
+      var heading=make('div',{class:'bar-label'});
+      heading.appendChild(make('strong',{},label));
+      heading.appendChild(make('span',{},countFormat(value)+' comments'));
+      var track=make('div',{class:'track'}), fill=make('div',{class:'fill'});
+      fill.style.width=((maximum ? (100*value/maximum) : 0).toFixed(1))+'%';
+      if(color)fill.style.background=color;
+      track.appendChild(fill);item.appendChild(heading);item.appendChild(track);root.appendChild(item);
+    }
+
+    function drawAnalysis(){
+      var active = summary && summary.status==='analyzed';
+      $('#status-word').textContent=active ? 'Observed data · analyzed' : 'Awaiting data collection';
+      $('#total').textContent=active ? countFormat(summary.total_comments) : '0';
+      ['before','election','after'].forEach(function(phase){
+        var n=active ? (summary.by_channel_phase || []).filter(function(r){return r.phase===phase;}).reduce(function(a,r){return a+r.count;},0) : null;
+        $('#total-'+phase).textContent=n===null?'—':countFormat(n);
+      });
+      $('#data-status').innerHTML='';
+      if(active){
+        $('#data-status').appendChild(make('strong',{},'Real comments analyzed. '));
+        $('#data-status').appendChild(document.createTextNode(summary.notes));
+        var incomplete=(summary.collection_report||[]).filter(function(r){return r.scan_complete===false || r.under_target || r.status==='error';});
+        if(incomplete.length)$('#data-status').appendChild(document.createTextNode(' Caution: '+incomplete.length+' video sample(s) have errors, fewer comments than requested, or incomplete scanning.'));
+      } else {
+        $('#data-status').appendChild(make('strong',{},'Data collection not yet run. '));
+        $('#data-status').appendChild(document.createTextNode('This website shows video candidates but no collected comments or generated findings. Run the Python scripts to publish real aggregate results.'));
+      }
+      document.querySelectorAll('[data-phase]').forEach(function(b){
+        b.setAttribute('aria-pressed', b.dataset.phase===selectedPhase ? 'true' : 'false');
+      });
+      var counts=$('#count-bars');clear(counts);
+      var terms=$('#terms');clear(terms);
+      var clusters=$('#clusters');clear(clusters);
+      if(!active){
+        counts.appendChild(note('No collected comments yet.'));
+        terms.appendChild(note('No observed terms yet.'));
+        clusters.appendChild(note('No ML output yet.'));
+        return;
+      }
+      var selected=(summary.by_channel_phase||[]).filter(function(r){return r.phase===selectedPhase;});
+      var maximum=Math.max(1,...selected.map(function(x){return x.count;}));
+      channels.forEach(function(channel){
+        var record=selected.find(function(r){return r.channel===channel;});
+        bar(counts,channel,record?record.count:0,maximum,channel==='HasanAbi'?'#79c9d3':'#e69b62');
+      });
+      var group=(summary.terms_by_phase||[]).find(function(x){return x.phase===selectedPhase;});
+      if(!group||!group.terms.length){terms.appendChild(note('No usable terms in this phase.'));}
+      else group.terms.forEach(function(term){
+        var chip=make('span',{class:'word'});
+        chip.appendChild(document.createTextNode(term.term));
+        chip.appendChild(make('b',{},countFormat(term.count)));
+        terms.appendChild(chip);
+      });
+      if(!summary.clusters || !summary.clusters.length){
+        clusters.appendChild(note('Not enough text to fit a stable model.'));
+      } else {
+        summary.clusters.forEach(function(cluster){
+          var data=(summary.cluster_allocations||[]).filter(function(c){return c.phase===selectedPhase && c.cluster_id===cluster.id;});
+          var countsByChannel=channels.map(function(channel){var item=data.find(function(x){return x.channel===channel;});return item?item.count:0;});
+          var line=make('div',{});
+          var label=make('p',{class:'bar-label'});
+          label.appendChild(make('strong',{},cluster.label+' · '+cluster.terms.slice(0,4).join(', ')));
+          label.appendChild(make('span',{},countFormat(countsByChannel[0]+countsByChannel[1])));
+          line.appendChild(label);
+          var track=make('div',{class:'track'});
+          track.style.height='12px';track.style.display='flex';
+          var denominator=Math.max(1,countsByChannel[0]+countsByChannel[1]);
+          [{v:countsByChannel[0],c:'#79c9d3'},{v:countsByChannel[1],c:'#e69b62'}].forEach(function(x){
+            var seg=make('div');seg.style.width=(100*x.v/denominator)+'%';seg.style.background=x.c;track.appendChild(seg);
+          });
+          line.appendChild(track);
+          clusters.appendChild(line);
+        });
+        clusters.appendChild(make('div',{class:'legend'},'Blue: HasanAbi · Orange: Fox News · Width = sampled comments in each cluster'));
+      }
+    }
+    document.querySelectorAll('[data-phase]').forEach(function(btn){
+      btn.addEventListener('click',function(){selectedPhase=btn.dataset.phase;drawAnalysis();});
+    });
+    Promise.all([
+      fetch('data/videos.json').then(function(r){if(!r.ok)throw Error('videos.json');return r.json();}),
+      fetch('data/summary.json').then(function(r){if(!r.ok)throw Error('summary.json');return r.json();})
+    ]).then(function(data){videos=data[0];summary=data[1];drawVideos();drawAnalysis();})
+      .catch(function(err){$('#videos-grid').textContent='Unable to load local JSON: '+err.message+'. Serve this folder with python -m http.server 8000, not file://.';});
+  })();
+  </script>
+</body>
+</html>
