@@ -26,7 +26,7 @@ For a narrated, **step-by-step K-Means exercise** based on Professor Mandiberg's
 - [Jupyter notebook — notebooks/kmeans_midterm_walkthrough.ipynb](notebooks/kmeans_midterm_walkthrough.ipynb) (markdown explanations + one numbered code cell per major step)
 - [Plain Python version — scripts/clustering_walkthrough.py](scripts/clustering_walkthrough.py) (same operations with numbered comments)
 
-The tutorial is independent of the production scripts/analyze.py: it will not change the published website. It teaches **load → clean → TF-IDF numerical features → elbow method → choose k → fit K-Means → inspect centroids and private examples → plot normalized groups → visualize 2D projection → interpret**.
+The tutorial is independent of the production scripts/analyze.py: it will not change the published website. It teaches **load → clean → standard/custom stop words → inspect vocabulary before/after → TF-IDF numerical features → elbow method → choose k → fit K-Means → inspect centroids and private examples → plot normalized groups → visualize 2D projection → interpret**. In **Step 3A**, edit `CUSTOM_STOP_WORDS` and optionally enable `REMOVE_REVIEW_WORDS`; never remove political terms solely to make clusters appear cleaner.
 
 Run from the project root:
 
