@@ -160,6 +160,7 @@
     var selectedPhase = 'before';
     var summary = null;
     var videos = null;
+    var resolvedVideos = [];
     var phases = {before:'Before',election:'Election Day',after:'After'};
     var channels = ['HasanAbi','Fox News'];
     var $ = function (s) { return document.querySelector(s); };
@@ -182,6 +183,9 @@
         channels.forEach(function(channel){
           var item = videos.videos.find(function(v){return v.phase===phase && v.channel===channel;});
           if(!item)return;
+          item = Object.assign({}, item);
+          var match = resolvedVideos.find(function(v){return v.phase===phase && v.channel===channel;});
+          if(match){item.id=match.id;item.title=match.title;item.source=match.source||item.source;}
           var card=make('article',{class:'video'});
           var thumb=make('div',{class:'thumbnail'});
           if(item.id && /^[A-Za-z0-9_-]{11}$/.test(item.id)){
@@ -296,8 +300,9 @@
     });
     Promise.all([
       fetch('data/videos.json').then(function(r){if(!r.ok)throw Error('videos.json');return r.json();}),
-      fetch('data/summary.json').then(function(r){if(!r.ok)throw Error('summary.json');return r.json();})
-    ]).then(function(data){videos=data[0];summary=data[1];drawVideos();drawAnalysis();})
+      fetch('data/summary.json').then(function(r){if(!r.ok)throw Error('summary.json');return r.json();}),
+      fetch('data/resolved_videos.json').then(function(r){return r.ok?r.json():[];}).catch(function(){return [];})
+    ]).then(function(data){videos=data[0];summary=data[1];resolvedVideos=data[2];drawVideos();drawAnalysis();})
       .catch(function(err){$('#videos-grid').textContent='Unable to load local JSON: '+err.message+'. Serve this folder with python -m http.server 8000, not file://.';});
   })();
   </script>
