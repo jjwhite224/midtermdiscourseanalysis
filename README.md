@@ -19,6 +19,21 @@ This pilot compares **HasanAbi** and **Fox News** across three phases (one video
 7. Preview: `python -m http.server 8000`, then open http://localhost:8000
 8. To publish, commit **only** `data/summary.json`, `data/collection_report.json`, and any reviewed video metadata. Enable GitHub Pages from the root of `main` in repository Settings → Pages. **Never commit** `data/private/`.
 
+## Collect and edit a YouTube dataset directly in Google Colab
+
+**[Open the complete notebook in Google Colab](https://colab.research.google.com/github/jjwhite224/midtermdiscourseanalysis/blob/main/notebooks/kmeans_midterm_walkthrough.ipynb)**. The notebook now includes an **editable Colab dataset builder before Step 2**, so you do not need to separately run scripts/collect.py.
+
+1. In [Google Cloud Console](https://console.cloud.google.com/apis/library/youtube.googleapis.com), enable YouTube Data API v3 and create a key.
+2. In Colab's **Secrets** panel (key icon), add a secret named `YOUTUBE_API_KEY` and allow notebook access. The notebook can also prompt you for the key with hidden input. Never save a key in a code cell.
+3. In the **dataset settings** cell, edit `VIDEO_SELECTION` (video IDs and enabled flags), `CHANNEL_IDS` (official uploader IDs), `PHASE_WINDOWS`, `TARGET_PER_VIDEO`, `MAX_PAGES_PER_VIDEO`, `MIN_LIKES`, `MIN_WORDS_AT_COLLECTION`, and `SAMPLING_METHOD`.
+4. Run the import, configuration, verification, and collection cells **in order**. Check the video-title preview before collecting; the pre-election Fox News candidate is a short and may not be the best comparison.
+5. Inspect group counts and any incomplete scans. The collected DataFrame is already in memory as `df`, and the raw CSV plus configuration/collection metadata are saved under `data/private/` **inside the Colab runtime**. The notebook includes an optional, commented-out download command.
+6. Continue from **Step 2** through stop-word filtering, the elbow method, clustering, and visualizations. You can change the collection settings and rerun the collector to build a different dataset.
+
+The default configuration is six videos (HasanAbi vs Fox News), 150 comments per video, with the same Eastern-time before/election/after windows as the initial pilot. The collector checks uploader ownership and upload dates against YouTube's API, then filters **each comment's publication timestamp**. It records shortfalls and page-cap warnings and does not collect author names or handles. Collection runs **only when you run the notebook cells**, and it does **not** overwrite the public GitHub Pages results.
+
+**Privacy:** Colab runtime files are temporary. The private CSV contains comment bodies and IDs, so do not commit it or executed notebook outputs with identifiable excerpts. You can store a private local copy and publish aggregate results separately.
+
 ## Classroom-style clustering walkthrough
 
 For a narrated, **step-by-step K-Means exercise** based on Professor Mandiberg's [Iris clustering demo](https://github.com/mandiberg/DATA-78000/tree/main/data_clustering), use either:
