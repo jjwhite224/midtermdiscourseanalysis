@@ -24,7 +24,9 @@ jobs:
       - name: Install analysis package
         run: python -m pip install -r requirements.txt
       - name: Collect published-time-bounded comments
-        run: python scripts/collect.py --target ${{ inputs.target }}
+        env:
+          TARGET: ${{ inputs.target }}
+        run: python scripts/collect.py --target "$TARGET"
       - name: Generate aggregate text and cluster summaries
         run: python scripts/analyze.py
       - name: Commit only public aggregates and reviewed selection metadata
