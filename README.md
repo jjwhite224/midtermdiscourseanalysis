@@ -19,6 +19,23 @@ This pilot compares **HasanAbi** and **Fox News** across three phases (one video
 7. Preview: `python -m http.server 8000`, then open http://localhost:8000
 8. To publish, commit **only** `data/summary.json`, `data/collection_report.json`, and any reviewed video metadata. Enable GitHub Pages from the root of `main` in repository Settings → Pages. **Never commit** `data/private/`.
 
+## Classroom-style clustering walkthrough
+
+For a narrated, **step-by-step K-Means exercise** based on Professor Mandiberg's [Iris clustering demo](https://github.com/mandiberg/DATA-78000/tree/main/data_clustering), use either:
+
+- [Jupyter notebook — notebooks/kmeans_midterm_walkthrough.ipynb](notebooks/kmeans_midterm_walkthrough.ipynb) (markdown explanations + one numbered code cell per major step)
+- [Plain Python version — scripts/clustering_walkthrough.py](scripts/clustering_walkthrough.py) (same operations with numbered comments)
+
+The tutorial is independent of the production scripts/analyze.py: it will not change the published website. It teaches **load → clean → TF-IDF numerical features → elbow method → choose k → fit K-Means → inspect centroids and private examples → plot normalized groups → visualize 2D projection → interpret**.
+
+Run from the project root:
+
+    python -m pip install -r requirements-notebook.txt
+    python scripts/collect.py --target 150
+    python scripts/clustering_walkthrough.py
+
+Alternatively, open the notebook in Jupyter/Colab and run its cells in order. **The earlier GitHub Actions run did not save the private comment text to GitHub.** The collector needs to run locally again, or you can upload your privately held CSV into a temporary Colab notebook session. Do not commit the private CSV or executed notebook outputs containing comment text.
+
 ## No-install cloud collection (GitHub Actions)
 
 Once your API key exists, open the repository's **Settings → Secrets and variables → Actions → New repository secret**. Name the secret **`YOUTUBE_API_KEY`** and paste the API key. Then go to **Actions → Collect and publish aggregate comment analysis → Run workflow**. Enter a target of **150**. The workflow collects locally on a temporary GitHub runner, runs the ML analysis, and commits only summary JSON and video metadata. This does not automatically turn on Pages; enable **Settings → Pages → Deploy from a branch → main / (root)** separately.
