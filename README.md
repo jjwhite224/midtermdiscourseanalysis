@@ -19,6 +19,12 @@ This pilot compares **HasanAbi** and **Fox News** across three phases (one video
 7. Preview: `python -m http.server 8000`, then open http://localhost:8000
 8. To publish, commit **only** `data/summary.json`, `data/collection_report.json`, and any reviewed video metadata. Enable GitHub Pages from the root of `main` in repository Settings → Pages. **Never commit** `data/private/`.
 
+## No-install cloud collection (GitHub Actions)
+
+Once your API key exists, open the repository's **Settings → Secrets and variables → Actions → New repository secret**. Name the secret **`YOUTUBE_API_KEY`** and paste the API key. Then go to **Actions → Collect and publish aggregate comment analysis → Run workflow**. Enter a target of **150**. The workflow collects locally on a temporary GitHub runner, runs the ML analysis, and commits only summary JSON and video metadata. This does not automatically turn on Pages; enable **Settings → Pages → Deploy from a branch → main / (root)** separately.
+
+The first run will fill in the missing Fox News pre-election video through official-channel API discovery. **Review the auto-selected title in `data/resolved_videos.json` before interpreting results.** If no suitable video is found, the collector flags an error instead of inventing an ID.
+
 ## What the collector does
 
 - Uses YouTube Data API `videos.list`, `search.list` (only for unresolved videos), and `commentThreads.list`.
